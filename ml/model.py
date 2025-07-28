@@ -29,14 +29,9 @@ def train_model(X_train, y_train):
     grid_fit = grid_obj.fit(X_train, y_train)
     best_clf = grid_fit.best_estimator_
     best_hyperparameters = grid_obj.best_params_
-    print("Unoptimized model\n------")
-    print("Accuracy score on testing data: {:.4f}".format(accuracy_score(y_test, predictions)))
-    print("F-score on testing data: {:.4f}".format(fbeta_score(y_test, predictions, beta = 0.5)))
-    print("\nOptimized Model\n------")
-    print("Final accuracy score on the testing data: {:.4f}".format(accuracy_score(y_test, best_predictions)))
-    print("Final F-score on the testing data: {:.4f}".format(fbeta_score(y_test, best_predictions, beta = 0.5)))
     print(f"Best Hyperparameters: {best_hyperparameters}")
-    return clf(best_hyperparameters)
+    model = best_clf
+    return model
 
 def compute_model_metrics(y, preds):
     """
