@@ -3,7 +3,7 @@ import os
 from sklearn.metrics import fbeta_score, precision_score, recall_score
 from ml.data import process_data
 from sklearn.ensemble import AdaBoostClassifier
-from sklearn.grid_search import GridSearchCV
+from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import make_scorer
 
 # Optional: implement hyperparameter tuning.
