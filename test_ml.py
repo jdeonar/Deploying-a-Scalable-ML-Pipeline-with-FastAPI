@@ -1,28 +1,30 @@
+from train_model import X_train, y_train
+from ml.model import train_model
+
+import os
+import pandas
 import pytest
-# TODO: add necessary import
 
-# TODO: implement the first test. Change the function name and input as needed
-def test_one():
+def test_algorithm():
     """
-    # add description for the first test
+    Checks that the model used in model.py is AdaBoost
     """
-    # Your code here
-    pass
+    model = train_model(X_train, y_train)
+    algorithm_expected = 'AdaBoostClassifier'
+    assert type(model).__name__ == algorithm_expected, f'Algorithm\nExpected: {algorithm_expected}\n Actual: {type(model).__name__}'
 
-
-# TODO: implement the second test. Change the function name and input as needed
-def test_two():
+def test_model_exists():
     """
-    # add description for the second test
+    Checks if necessary model pickle file exists
     """
-    # Your code here
-    pass
-
-
-# TODO: implement the third test. Change the function name and input as needed
-def test_three():
+    file_path = './model/model.pkl'
+    assert os.path.isfile(file_path)
+    
+def test_training_data_size():
     """
-    # add description for the third test
+    Checks that the training set is 80% of the total dataset from a fresh read-in of the csv.
     """
-    # Your code here
-    pass
+    df = pandas.read_csv('./data/census.csv')
+    all_rows = df.shape[0]
+    train_rows = X_train.shape[0]
+    assert train_rows == int(all_rows * 0.8)
