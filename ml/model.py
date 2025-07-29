@@ -31,6 +31,7 @@ def train_model(X_train, y_train):
     best_hyperparameters = grid_obj.best_params_
     print(f"Best Hyperparameters: {best_hyperparameters}")
     model = best_clf
+    model.fit(X_train,y_train)
     return model
 
 def compute_model_metrics(y, preds):
