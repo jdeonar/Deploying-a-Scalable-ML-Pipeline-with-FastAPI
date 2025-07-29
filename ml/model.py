@@ -24,7 +24,7 @@ def train_model(X_train, y_train):
     """
     clf = AdaBoostClassifier(random_state=23)
     parameters = {'n_estimators':[50, 250, 500], 'learning_rate':[0.5, 1.0, 2.5]}
-    scorer = make_scorer(fbeta_score, beta=0.5)
+    scorer = make_scorer(fbeta_score, beta=1.0)
     grid_obj = GridSearchCV(clf, parameters, scoring=scorer)
     grid_fit = grid_obj.fit(X_train, y_train)
     best_clf = grid_fit.best_estimator_
