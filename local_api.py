@@ -5,7 +5,7 @@ Local test of the API created in main.py
 import requests
 
 url = 'http://127.0.0.1:8000'
-request = requests.get(r)
+request = requests.get(url)
 print(request.status_code)
 print(request.text)
 
