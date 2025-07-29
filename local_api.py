@@ -25,10 +25,8 @@ data = {
     "native-country": "United-States",
 }
 
-
 post_r = r+'/data'
-posts = request.post(post_r, json=data)
-
+posts = requests.post(post_r, json=data)
 
 print(posts.status_code)
 print(posts.text)
