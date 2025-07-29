@@ -1,8 +1,10 @@
-import json
+'''
+Local test of the API created in main.py
+'''
 
 import requests
 
-r = 'http://127.0.0.1:8000'
+url = 'http://127.0.0.1:8000'
 request = requests.get(r)
 print(request.status_code)
 print(request.text)
@@ -25,8 +27,8 @@ data = {
     "native-country": "United-States",
 }
 
-post_r = r+'/data'
-posts = requests.post(post_r, json=data)
+post_url = url+'/data'
+posts = requests.post(post_url, json=data)
 
 print(posts.status_code)
 print(posts.text)

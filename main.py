@@ -1,5 +1,6 @@
-import os
-
+'''
+Creates API and loads model/encoders already created.
+'''
 import pandas as pd
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
@@ -26,11 +27,11 @@ class Data(BaseModel):
     hours_per_week: int = Field(..., example=40, alias="hours-per-week")
     native_country: str = Field(..., example="United-States", alias="native-country")
 
-path = './model/encoder.pkl'
-encoder = load_model(path)
+encode_path = './model/encoder.pkl'
+encoder = load_model(encode_path)
 
-path = './model/model.pkl'
-model = load_model(path)
+model_path = './model/model.pkl'
+model = load_model(model_path)
 
 app = FastAPI()
 
